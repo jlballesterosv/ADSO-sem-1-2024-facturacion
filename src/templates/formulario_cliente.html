@@ -57,71 +57,24 @@
               <a class="dropdown-item" href="formulario_producto.html"
                 >Crear Producto</a
               >
-              
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
         </ul>
-        
-          <button
-            type="button"
-            class="btn btn-primary"
-            style="margin-right: 10px"
-            onclick="window.location.href='formulario_usuario.html'"
-          >
-            ingresar
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
           </button>
-          <button 
-          type="button" 
-          class="btn btn-primary"
-          onclick="window.location.href='formulario_Nue_usuario.html'"
-          >
-          registrarse
-        </button>
         </form>
       </div>
     </nav>
-    <h2>Crear Producto</h2>
-    <form action="guardar_productos.php" method="post">
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="descripcion">Descripción</label>
-          <input
-            type="text"
-            class="form-control"
-            name="descripcion"
-            placeholder="Describa el producto (dato único)"required
-          />
-        </div>
-        <div class="form-group col-md-6">
-          <label for="cantidad_inventario">Cantidad Inventario</label>
-          <input type="number" class="form-control" name="cantidad_inventario" required/>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="precio_unitario">Precio Unitario</label>
-          <input type="number" class="form-control" name="precio_unitario" required/>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="unidad_medida">Unidad de Medida</label>
-          <select name="unidad_medida" class="form-control">
-            <option selected>Por favor seleccione...</option>
-            <option value="GR">GR</option>
-            <option value="UND">UND</option>
-          </select>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="categoria">Categoria</label>
-          <select id="categoria" class="form-control">
-            <option selected>Por favor seleccione...</option>
-            <option value="1">Alimentos</option>
-            <option value="2">Ropa</option>
-            <option value="3">bebidas</option>
-          </select>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
+    <h1>Bienvenido a la aplicación de facturación</h1>
   </body>
 </html>
