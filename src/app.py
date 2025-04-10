@@ -15,4 +15,9 @@ def lista_productos():
 
 @app.route('/formulario_producto')
 def formulario_producto():
-    return render_template('formulario_producto.html',titulo='Crear un productos')
+    return render_template('formulario_producto.html',titulo='Crear un producto')
+
+
+@app.route('/se_guardo')
+def se_guardo():
+    return render_template('se_guardo.html',titulo='Se guardó!!!')
