@@ -5,10 +5,11 @@
 <h1>{{ titulo }}</h1>  
   <form action="/se_guardo">    
     <div class="form-row">
+      
       <div class="form-group col-md-6">
         <label for="codigo">Código</label>
-        <input type="text" class="form-control" id="codigo" placeholder="AAA000000" onblur="validarCodigo()">
-        <span id="emailError" class="error" style="display: none;">Invalid email format</span>
+        <input type="text" class="form-control" id="codigo" placeholder="AAA00000" onblur="validarCodigo()">
+        <span class="alert alert-danger" role="alert" id="errorCodigo" style="display: none;">Error el campo debe tener 3 letras mayúsculas y luego números</span>
       </div>
       <div class="form-group col-md-6">
         <label for="descripcion">Descripción</label>
@@ -45,20 +46,20 @@
   </form> 
   <script type="text/javascript">
     function validarCodigo() {
-      // Code to execute after leaving the input field
-      let codiogInputField = document.getElementById("codigo");
-      let emailError = document.getElementById('emailError');
-      let value = codiogInputField.value;
-      var re = new RegExp("[A-Z]{3}[0-9]*");
-      if (re.test(value)) {
-        console.log("Valid");
-        emailError.style.display = 'none';
+      console.log("entro a la funcion");
+      let campoCodigo = document.getElementById("codigo");
+      let valorCodigo = campoCodigo.value;
+      let errorCodigo = document.getElementById("errorCodigo");
+      console.log("El valor del código escrito es: " + valorCodigo);
+      var expresionRegular = new RegExp("[A-Z]{3}[0-9]{1,}")
+      if(expresionRegular.test(valorCodigo)) {
+        console.log("El campo cumple la validacion");
+        errorCodigo.style.display = 'none';
+
       } else {
-          console.log("Invalid");
-          emailError.style.display = 'block';          
+        console.log("El campo NO cumple la validacion");
+        errorCodigo.style.display = 'block';
       }
-      
-      console.log("Left the input field "+ value);
     }
   </script>
 {% endblock contenido %}
