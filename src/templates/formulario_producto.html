@@ -3,12 +3,12 @@
 
 {% block contenido %}
 <h1>{{ titulo }}</h1>  
-  <form action="/se_guardo">    
+  <form action="/formulario_producto" method="post">    
     <div class="form-row">
       
       <div class="form-group col-md-6">
         <label for="codigo">Código</label>
-        <input type="text" class="form-control" id="codigo" placeholder="AAA00000" onblur="validarCodigo()">
+        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="AAA00000" onblur="validarCodigo()">
         <span class="alert alert-danger" role="alert" id="errorCodigo" style="display: none;">Error el campo debe tener 3 letras mayúsculas y luego números</span>
       </div>
       <div class="form-group col-md-6">
@@ -57,7 +57,7 @@
         errorCodigo.style.display = 'none';
 
       } else {
-        console.log("El campo NO cumple la validacion");
+        console.log("El campo NO cumple la validacion debe tener el formato AAA0000");
         errorCodigo.style.display = 'block';
       }
     }
