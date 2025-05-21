@@ -13,21 +13,21 @@
       </div>
       <div class="form-group col-md-6">
         <label for="descripcion">Descripción</label>
-        <input type="text" class="form-control" id="descripcion" placeholder="Describa el producto (dato único)">
+        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Describa el producto (dato único)">
       </div>
       <div class="form-group col-md-6">
         <label for="cantidad_inventario">Cantidad Inventario</label>
-        <input type="number" class="form-control" id="cantidad_inventario">
+        <input type="number" class="form-control" id="cantidad_inventario" name="cantidad_inventario">
       </div>
       <div class="form-group col-md-6">
-        <label for="precio_unitario">Precio Unitario</label>
-        <input type="number" class="form-control" id="precio_unitario">
+        <label for="valor_unitario">Valor Unitario</label>
+        <input type="number" class="form-control" id="valor_unitario" name="valor_unitario">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="unidad_medida">Unidad de Medida</label>
-        <select id="unidad_medida" class="form-control">
+        <select id="unidad_medida" class="form-control" name="unidad_medida">
           <option selected>Por favor seleccione...</option>
           <option value="GRS">GRS</option>
           <option value="UND">UND</option>
@@ -35,7 +35,7 @@
       </div>
       <div class="form-group col-md-4">
         <label for="categoria">Categoria</label>
-        <select id="categoria" class="form-control">
+        <select id="categoria" name="categoria" class="form-control">
           <option selected>Por favor seleccione...</option>
           <option value="1">Alimentos</option>
           <option value="2">Ropa</option>

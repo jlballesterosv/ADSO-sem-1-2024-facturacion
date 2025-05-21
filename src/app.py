@@ -33,6 +33,13 @@ def lista_productos():
 def formulario_producto():
     if request.method == 'POST':
         codigo = request.form.get('codigo')
+        descripcion = request.form.get('descripcion')
+        valor_unitario = request.form.get('valor_unitario')
+        cantidad_inventario = request.form.get('cantidad_inventario')        
+        unidad_medida = request.form.get('unidad_medida')
+        categoria = request.form.get('categoria')
+        producto = Productos(codigo,descripcion,valor_unitario,unidad_medida,cantidad_inventario,categoria)
+        Productos.crear_producto(producto)
         print ("Entró por POST")
         print(codigo)    
     return render_template('formulario_producto.html',titulo='Crear un producto')
@@ -51,6 +58,21 @@ class Productos(Base):
     unidad_medida = Column(String(3), unique=True, nullable=False)
     cantidad_stock = Column(Float(10,8))
     categoria = Column(Integer, ForeignKey('categorias.id'), nullable=False)
+
+    def __init__(self,codigo,descripcion,valor_unitario,unidad_medida,cantidad_stock,categoria):
+        self.codigo = codigo
+        self.descripcion = descripcion
+        self.valor_unitario = valor_unitario
+        self.unidad_medida = unidad_medida
+        self.cantidad_stock = cantidad_stock
+        self.categoria = categoria
+
+    def crear_producto(producto):
+        producto = session.add(producto)
+        session.commit()
+        return producto
+
+
 
 
 class Categorias(Base):
