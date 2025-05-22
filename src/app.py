@@ -41,8 +41,9 @@ def formulario_producto():
         producto = Productos(codigo,descripcion,valor_unitario,unidad_medida,cantidad_inventario,categoria)
         Productos.crear_producto(producto)
         print ("Entró por POST")
-        print(codigo)    
-    return render_template('formulario_producto.html',titulo='Crear un producto')
+        print(codigo)   
+    categorias = Categorias.traer_categorias() 
+    return render_template('formulario_producto.html',titulo='Crear un producto',categorias = categorias)
 
 @app.route('/se_guardo')
 def se_guardo():
@@ -79,6 +80,16 @@ class Categorias(Base):
     __tablename__ = "categorias"
     id = Column(Integer, primary_key=True)
     nombre_categoria = Column(String(300), unique=True, nullable=False)
+
+    
+    def __init__(self, nombre_categoria):
+        self.nombre_categoria = nombre_categoria
+
+    def traer_categorias():
+        categorias = session.query(Categorias).all()
+        return categorias
+        
+    
 
 Base.metadata.create_all(engine)
 
