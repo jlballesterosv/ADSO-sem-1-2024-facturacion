@@ -16,30 +16,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Pan tajado bolsa 200 grs</td>
-            <td>100</td>
-            <td>5000</td>
-            <td>Unidad</td>
-            <td>Alimentos</td>
-            <td>
-              <button type="button" class="btn btn-success">Editar</button>
-              <button type="button" class="btn btn-danger">Borrar</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Carne cerdo costilla</td>
-            <td>10000</td>
-            <td>32</td>
-            <td>GRS</td>
-            <td>Alimentos</td>                     
-            <td>
-              <button type="button" class="btn btn-success">Editar</button>
-              <button type="button" class="btn btn-danger">Borrar</button>
-            </td>
-          </tr> 
+          {% for producto in productos %}
+            <tr>
+              <th scope="row">{{producto.codigo}}</th>
+              <td>{{producto.descripcion}}</td>
+              <td>{{producto.cantidad_stock}}</td>
+              <td>{{producto.valor_unitario}}</td>
+              <td>{{producto.unidad_medida}}</td>
+              <td>{{producto.categoria}}</td>
+              <td>
+                <button type="button" class="btn btn-success">Editar</button>
+                <button type="button" class="btn btn-danger">Borrar</button>
+              </td>
+            </tr>
+          {% endfor %}
 
         </tbody>
       </table>
