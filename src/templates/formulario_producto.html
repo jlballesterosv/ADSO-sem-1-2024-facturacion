@@ -8,20 +8,24 @@
       
       <div class="form-group col-md-6">
         <label for="codigo">Código</label>
-        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="AAA00000" onblur="validarCodigo()">
+        <input type="text" class="form-control" id="codigo" {% if producto_almacenar %} value="{{ producto_almacenar.codigo }}" {% endif %} name="codigo" placeholder="AAA00000" onblur="validarCodigo()">
         <span class="alert alert-danger" role="alert" id="errorCodigo" style="display: none;">Error el campo debe tener 3 letras mayúsculas y luego números</span>
       </div>
       <div class="form-group col-md-6">
         <label for="descripcion">Descripción</label>
-        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Describa el producto (dato único)">
+        <input type="text" class="form-control" id="descripcion" name="descripcion" {% if producto_almacenar %} value="{{ producto_almacenar.descripcion }}" {% endif %} placeholder="Describa el producto (dato único)">
+        {% if errorProducto %}
+          <span class="alert alert-danger" role="alert" id="errorDescripcion" >{{ errorProducto }}</span>
+        {% endif %}
+        
       </div>
       <div class="form-group col-md-6">
         <label for="cantidad_inventario">Cantidad Inventario</label>
-        <input type="number" class="form-control" id="cantidad_inventario" name="cantidad_inventario">
+        <input type="number" class="form-control" id="cantidad_inventario" name="cantidad_inventario" {% if producto_almacenar %} value="{{ producto_almacenar.cantidad_inventario }}" {% endif %}>
       </div>
       <div class="form-group col-md-6">
         <label for="valor_unitario">Valor Unitario</label>
-        <input type="number" class="form-control" id="valor_unitario" name="valor_unitario">
+        <input type="number" class="form-control" id="valor_unitario" name="valor_unitario"{% if producto_almacenar %} value="{{ producto_almacenar.valor_unitario }}" {% endif %}>
       </div>
     </div>
     <div class="form-row">
@@ -52,7 +56,7 @@
       let valorCodigo = campoCodigo.value;
       let errorCodigo = document.getElementById("errorCodigo");
       console.log("El valor del código escrito es: " + valorCodigo);
-      var expresionRegular = new RegExp("[A-Z]{3}[0-9]{1,}")
+      var expresionRegular = new RegExp("[A-Z]{3}[0-9]{1,}") 
       if(expresionRegular.test(valorCodigo)) {
         console.log("El campo cumple la validacion");
         errorCodigo.style.display = 'none';
