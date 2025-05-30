@@ -15,7 +15,7 @@
         <label for="descripcion">Descripción</label>
         <input type="text" class="form-control" id="descripcion" name="descripcion" {% if producto_almacenar %} value="{{ producto_almacenar.descripcion }}" {% endif %} placeholder="Describa el producto (dato único)">
         {% if errorProducto %}
-          <span class="alert alert-danger" role="alert" id="errorDescripcion" >{{ errorProducto }}</span>
+          <span class="alert alert-danger" role="alert" id="errorDescripcion"  style="display: block;">{{ errorProducto }}</span>
         {% endif %}
         
       </div>
