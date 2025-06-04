@@ -21,7 +21,7 @@
       </div>
       <div class="form-group col-md-6">
         <label for="cantidad_inventario">Cantidad Inventario</label>
-        <input type="number" class="form-control" id="cantidad_inventario" name="cantidad_inventario" {% if producto_almacenar %} value="{{ producto_almacenar.cantidad_inventario }}" {% endif %}>
+        <input type="number" class="form-control" id="cantidad_inventario" name="cantidad_inventario" {% if producto_almacenar %} value="{{ producto_almacenar.cantidad_stock }}" {% endif %}>
       </div>
       <div class="form-group col-md-6">
         <label for="valor_unitario">Valor Unitario</label>
