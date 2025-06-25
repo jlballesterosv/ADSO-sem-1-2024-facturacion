@@ -31,7 +31,7 @@ class Clientes(Base):
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
     
-    def obtener_cliente_por_numero_identificacion(numero_identificacion):
-        cliente = session.query(Clientes).filter(Clientes.documento_identidad == numero_identificacion).first()
+    def obtener_cliente_por_documento_identidad(documento_identidad):
+        cliente = session.query(Clientes).filter(Clientes.documento_identidad == documento_identidad).first()
         print(cliente)
         return json.dumps(cliente.as_dict())

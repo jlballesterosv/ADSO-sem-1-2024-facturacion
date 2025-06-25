@@ -8,7 +8,7 @@
       
       <div class="form-group col-md-6">
         <label for="codigo">Cédula Cliente</label>
-        <input type="text" class="form-control" id="cedula_cliente" name="cedula_cliente" placeholder="123456789">        
+        <input type="text" class="form-control" id="documento_identidad" name="documento_identidad" placeholder="123456789">        
       </div>
       <div class="form-group col-md-6">
         <label for="codigo">Nombre</label>
@@ -30,11 +30,11 @@
     <button type="submit" class="btn btn-primary">Guardar</button>
   </form> 
   <script>
-    $("#cedula_cliente").change(function() {      
+    $("#documento_identidad").change(function() {      
         value = $(this).val();
         $.ajax({
           type: "GET",
-          url: "/consultar_cliente_numero_identificacion/" + value,
+          url: "/consultar_cliente_documento_identidad/" + value,
           contentType: "application/json",
           dataType: 'json',
           success: function(result) {
