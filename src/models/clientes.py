@@ -1,6 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from src.models import session, Base
-import json
 
 
 class Clientes(Base):
@@ -34,4 +33,4 @@ class Clientes(Base):
     def obtener_cliente_por_documento_identidad(documento_identidad):
         cliente = session.query(Clientes).filter(Clientes.documento_identidad == documento_identidad).first()
         print(cliente)
-        return json.dumps(cliente.as_dict())
+        return cliente.as_dict()
