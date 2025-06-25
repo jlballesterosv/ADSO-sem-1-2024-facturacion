@@ -26,3 +26,9 @@ class Clientes(Base):
     def traer_clientes():
         clientes =  session.query(Clientes).all()
         return clientes
+    
+    def traer_cliente_por_documento_identidad(documento_identidad):
+        print("Documento recibido: " + documento_identidad)
+        cliente =  session.query(Clientes).filter(Clientes.documento_identidad == documento_identidad).first()
+        print(cliente)
+        return cliente

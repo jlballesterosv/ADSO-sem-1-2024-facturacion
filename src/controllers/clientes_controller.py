@@ -13,4 +13,8 @@ class ClientesController(FlaskController):
         except:
             return render_template('lista_clientes.html',titulo='Error de conexión a la base de datos')    
 
+    @app.route('/consultar_cliente_por_documento_identidad/<documento_identidad>')
+    def consultar_cliente_por_documento_identidad(documento_identidad):
+        cliente = Clientes.traer_cliente_por_documento_identidad(documento_identidad)
+        return cliente
     
